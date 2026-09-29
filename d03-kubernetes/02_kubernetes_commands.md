@@ -34,6 +34,15 @@ spec:
 ```
 _______________________________________________________________________________
 
+To check what Kubernetes cluster you are interacting with:
+```bash
+kubectl config current-context
+```
+
+If `minikube` (a single-node Kubernetes cluster) is active, 
+you should get this back.
+_______________________________________________________________________________
+
 To create pods from a yaml file
 ```bash
 kubectl create -f name_of_file.yaml --save-config

@@ -1,3 +1,6 @@
+Kubernetes is a tool used to manage multiple machines. These could be
+physical machines or virtual machines.
+
 - Kubernetes (The standard for managing cloud native applications)
 - Deploy containerized applications using pods
 - Allow applications to find and communicated with each other 
