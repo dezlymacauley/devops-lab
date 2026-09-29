@@ -1,4 +1,7 @@
-
+How to search for pods
+```bash
+kubectl get pods
+```
 
 ```bash
 kubectl apply -f grade_submission_portal_pod.yaml
@@ -59,8 +62,29 @@ _______________________________________________________________________________
 This creates the resource if it does not exist or updates it.
 _______________________________________________________________________________
 
+
+How to delete a pod
+    ````
+❯ kubectl delete pod -l "app.kubernetes.io/name=grade-submission"
+pod "grade-submission-portal" deleted from default namespace
+d03-kubernetes/01-demo-applications/grade-submission on  main [!]
+    ``
+_______________________________________________________________________________
+
 - Container 1: Grade Submission Portal (Frontend)
     - For submitting data to the backend
 
 - Container 2: Grade Submission API (Backend)
     - For storing the submitted data
+
+_______________________________________________________________________________
+
+A pod can actually run more than one container.
+
+E.g. You have a microservice that relies on a sidecar to provide additional
+functionality.
+
+E.g. A health checker service that will monitor its health and display
+information.
+
+_______________________________________________________________________________
