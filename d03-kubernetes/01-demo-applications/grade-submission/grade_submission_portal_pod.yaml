@@ -1,54 +1,20 @@
-# Specifies the version of the Kubernetes API that should handle 
-# this resource
 apiVersion: v1
-
-# Specifies the type of resource that this declaration is for
 kind: Pod
-
-# This is information about the pod that makes it easier to identify
-# and target.
 metadata:
   name: "grade-submission-portal"
-
-  # `labels` is a group label for the microservice.
-  # This microservice is part of the group `grade-submission`
-  # And its role is specifically to be a `frontend`.
   labels:
-    # It is recommend to prefix your keys with `app.kubernetes.io/` to 
-    # prevent collisions with other third party labels within the Kubernetes
-    # ecosystem.
     app.kubernetes.io/name: grade-submission
     app.kubernetes.io/instance: grade-submission-portal
     app.kubernetes.io/component: frontend
-
-# This is where you specify the runtime requirements of the pod
 spec:
   containers:
-  - name: grade-submission-portal
-    image: "rslim087/kubernetes-course-grade-submission-portal:latest"
-    resources:
-
-      # The minimum amount of memory and CPU that the application needs in
-      # order to function properly
-      requests:
-        cpu: 100m
-        memory: 200Mi
-    env:
-    - name: DB_HOST
-      valueFrom:
-        configMapKeyRef:
-          name: myapp
-          key: DB_HOST
-    ports:
-    - containerPort: 80
-      name: http
-    volumeMounts:
-    - name: localtime
-      mountPath: /etc/localtime
-  volumes:
-    - name: localtime
-      hostPath:
-        path: /usr/share/zoneinfo/Asia/Taipei
-  restartPolicy: Always
----
-
+    - name: grade-submission-portal
+      image: "rslim087/kubernetes-course-grade-submission-portal:latest"
+      resources:
+        requests:
+          memory: "128Mi"
+          cpu: "200m"
+        limits:
+          memory: "128Mi"
+      ports:
+        - containerPort: 5001

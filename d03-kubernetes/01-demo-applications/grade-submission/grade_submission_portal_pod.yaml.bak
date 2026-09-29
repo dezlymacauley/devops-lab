@@ -1,0 +1,56 @@
+# Specifies the version of the Kubernetes API that should handle 
+# this resource
+apiVersion: v1
+
+# Specifies the type of resource that this declaration is for
+kind: Pod
+
+# This is information about the pod that makes it easier to identify
+# and target.
+metadata:
+  name: "grade-submission-portal"
+
+  # `labels` is a group label for the microservice.
+  # This microservice is part of the group `grade-submission`
+  # And its role is specifically to be a `frontend`.
+  labels:
+    # It is recommend to prefix your keys with `app.kubernetes.io/` to 
+    # prevent collisions with other third party labels within the Kubernetes
+    # ecosystem.
+    app.kubernetes.io/name: grade-submission
+    app.kubernetes.io/instance: grade-submission-portal
+    app.kubernetes.io/component: frontend
+
+# This is where you specify the runtime requirements of the pod
+spec:
+  containers:
+  - name: grade-submission-portal
+    image: "rslim087/kubernetes-course-grade-submission-portal:latest"
+    resources:
+
+      # The minimum amount of memory and CPU that the application needs in
+      # order to function properly
+      # This helps Kubernetes to decide which node (physical machine or 
+      # virtual machine) on the Kubernetes cluster can provide the resources
+      # needed for this container.
+      requests:
+
+        # The workspace where a computer stores data and retrieves it for
+        # immidate use.
+        # This is an incompressible resource.
+        memory: "128Mi"
+
+        # The compute that performs calculations and executes instructions.
+        # This is a compressible resource. It can be trottled, 
+        # so you don't need to put a limit on it.
+        cpu: "200m"
+
+      limits:
+
+        # You don't want the container to exceed the amount of memory that
+        # it is given.
+        memory:
+          "128Mi"
+    # Matches the port exposed by the frontend app in the container
+    ports:
+    - containerPort: 5001
