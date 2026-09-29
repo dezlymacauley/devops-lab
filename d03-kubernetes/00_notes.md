@@ -50,6 +50,14 @@ _______________________________________________________________________________
 
 Pod?
 The smallest deployable unit.
+When setting up a pod, you have the meta data and the runtime requirements.
+
+Name the pod, the same name as the microservice.
+
+You also specify the label grouping: This is used to place the pod into
+logical groups.
+
+The container port.
 
 You can't deploy a container directly in Kubernetes.
 
