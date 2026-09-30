@@ -37,7 +37,6 @@ AWS_ACCESS_KEY_ID = "test"
 AWS_SECRET_ACCESS_KEY = "test"
 
 # Floci Settings
-
 # Saves your changes without compromising speed
 FLOCI_STORAGE_MODE = "hybrid"               
 FLOCI_STORAGE_PERSISTENT_PATH = "{{env.HOME}}/.floci-aws-data"

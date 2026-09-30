@@ -1,8 +1,0 @@
-[shell_alias]
-containers = "mise containers"
-images = "mise images"
-ports = "mise ports"
-docker-status = "mise docker-status"
-toggle = "mise toggle"
-volumes = "mise volumes"
-tidy = "docker builder prune"

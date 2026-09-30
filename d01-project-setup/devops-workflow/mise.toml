@@ -1,0 +1,25 @@
+[tools]
+kubectl = "latest"
+minikube = "latest"
+
+#______________________________________________________________________________
+
+[shell_alias]
+
+# SUB_SECTION: Docker
+d-containers = "mise containers"
+d-images = "mise images"
+d-ports = "mise ports"
+d-status = "mise docker-status"
+d-toggle = "mise toggle"
+d-volumes = "mise volumes"
+d-tidy = "docker builder prune"
+
+# SUB_SECTION: Kubernetes
+k8 = "kubectl"
+
+# SUB_SECTION: Minikube
+mk-run = "minikube start --driver=docker"
+mk-stop = "minikube stop"
+mk-delete = "minikube delete"
+#______________________________________________________________________________
