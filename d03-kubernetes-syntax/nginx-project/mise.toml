@@ -1,0 +1,9 @@
+[tools]
+kubectl = "latest"
+minikube = "latest"
+
+[shell_alias]
+k8 = "kubectl"
+start = "minikube start --driver=docker"
+delete = "minikube delete"
+stop = "minikube stop"
