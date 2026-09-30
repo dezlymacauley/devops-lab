@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#MISE description="📦 List the ID, Name, and Status of all containers"
+#MISE description="🐳 List the ID, Name, and Status of all containers"
 #MISE quiet=true
 
 #______________________________________________________________________________

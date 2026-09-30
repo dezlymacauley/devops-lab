@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#MISE description="🔁 Toggle the state of the Docker daemon"
+#MISE description="🐳  Toggle the state of the Docker daemon"
 #MISE quiet=true
 
 #______________________________________________________________________________

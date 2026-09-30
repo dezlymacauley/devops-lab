@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#MISE description="🗄️ List Driver and Volume Name of each container volume"
+#MISE description="🐳  List Driver and Volume Name of each container volume"
 #MISE quiet=true
 
 #______________________________________________________________________________

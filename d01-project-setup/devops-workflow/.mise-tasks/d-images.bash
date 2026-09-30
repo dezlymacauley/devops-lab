@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#MISE description="🖼️  List locally downloaded container images"
+#MISE description="🐳  List locally downloaded container images"
 #MISE quiet=true
 
 #______________________________________________________________________________

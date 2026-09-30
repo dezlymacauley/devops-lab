@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-#MISE description="🚥 Check the status of Docker CLI and daemon"
+#MISE description="🐳  Check the status of Docker CLI and daemon"
 #MISE quiet=true
 
 #______________________________________________________________________________

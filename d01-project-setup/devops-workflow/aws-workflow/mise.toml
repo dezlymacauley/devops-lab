@@ -12,8 +12,6 @@ FLOCI_STORAGE_MODE = "hybrid"
 FLOCI_STORAGE_PERSISTENT_PATH = "{{env.HOME}}/.floci-aws-data"
 
 [tools]
-aws-cli = { version = "latest", symlink_bins = "true" }
-"github:floci-io/floci-cli" = "latest"
 
 [shell_alias]
 run = "floci start --persist $FLOCI_STORAGE_PERSISTENT_PATH"
