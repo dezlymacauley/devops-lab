@@ -1,5 +1,20 @@
 
+[env]
+
+# AWS Settings
+AWS_ENDPOINT_URL = "http://localhost.floci.io:4566"
+AWS_DEFAULT_REGION = "us-east-1"
+AWS_ACCESS_KEY_ID = "test"
+AWS_SECRET_ACCESS_KEY = "test"
+
+# Floci Settings
+FLOCI_STORAGE_MODE = "hybrid"               
+FLOCI_STORAGE_PERSISTENT_PATH = "{{env.HOME}}/.floci-aws-data"
+
+#______________________________________________________________________________
+
 [tools]
+
 aws-cli = { version = "latest", symlink_bins = "true" }
 "github:floci-io/floci-cli" = "latest"
 kubectl = "latest"
@@ -9,7 +24,7 @@ minikube = "latest"
 
 [shell_alias]
 
-# SUB_SECTION: Docker
+# SUB_SECTION: 🐳 Docker
 d-containers = "mise d-containers"
 d-images = "mise d-images"
 d-ports = "mise d-ports"
@@ -18,10 +33,15 @@ d-toggle = "mise d-toggle"
 d-volumes = "mise d-volumes"
 d-tidy = "mise d-tidy"
 
-# SUB_SECTION: Kubernetes
+# SUB_SECTION: 🍿 Floci
+f-start = "mise f-start"
+f-status= "mise f-status"
+f-stop = "mise f-stop"
+
+# SUB_SECTION: ☸️ kubectl
 k8 = "mise k8"
 
-# SUB_SECTION: Minikube
+# SUB_SECTION: 🧊 MiniKube
 mk-start = "mise mk-start"
 mk-stop = "mise mk-stop"
 mk-delete = "mise mk-delete"
