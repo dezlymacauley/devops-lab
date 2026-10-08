@@ -220,3 +220,8 @@ So Vercel detected a clash and added the word `ochre` to the link.
 
 To avoid this, ensure that you pick a unique project name.
 _______________________________________________________________________________
+
+### Note:
+
+For future deployments, use `vercel deploy --prod`
+_______________________________________________________________________________
