@@ -139,3 +139,15 @@ Delete the `.vercel` directory
 rm -rf .vercel
 ```
 _______________________________________________________________________________
+
+Deploy to vercel
+```bash
+vercel deploy
+```
+_______________________________________________________________________________
+
+You should be able to access the project at this link
+```
+https://vb-axum-vercel.vercel.app
+```
+_______________________________________________________________________________
