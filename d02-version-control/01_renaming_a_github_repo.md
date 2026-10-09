@@ -23,12 +23,12 @@ cd vb-axum-vercel
 ```
 _______________________________________________________________________________
 
-Log in to the GitHub cli
+Log in to the GitHub cli. You will see a series of prompts.
 ```bash
 gh auth login
 ```
 
-You should see something like this
+Select `GitHub.com` and press Enter.
 ```
 ? Where do you use GitHub?  [Use arrows to move, type to filter]
 > GitHub.com
@@ -36,7 +36,7 @@ You should see something like this
 ```
 _______________________________________________________________________________
 
-Select `HTTPS`
+Select `HTTPS` adn press Enter.
 ```
 ? What is your preferred protocol for Git operations on this host?  [Use arrows to move, type to filter]
 > HTTPS
@@ -44,17 +44,17 @@ Select `HTTPS`
 ```
 _______________________________________________________________________________
 
-Type `Y` and press Enter
+Type `n` and press Enter.
 ```
-? Authenticate Git with your GitHub credentials? (Y/n) Y
+? Authenticate Git with your GitHub credentials? (Y/n) n
 ```
 _______________________________________________________________________________
 
 Ensure that you are logged into GitHub and Select `Login with a web browser` 
 ```
 ? How would you like to authenticate GitHub CLI?  [Use arrows to move, type to filter]
-> Login with a web browser
-  Paste an authentication token
+  Login with a web browser
+> Paste an authentication token
 ```
 _______________________________________________________________________________
 
