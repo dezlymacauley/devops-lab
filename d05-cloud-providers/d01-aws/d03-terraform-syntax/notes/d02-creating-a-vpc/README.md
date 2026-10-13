@@ -39,3 +39,9 @@ Type `yes` into the prompt and press Enter
 Enter a value: yes
 ```
 _______________________________________________________________________________
+
+To destroy the infastructure
+```bash
+terraform destroy
+```
+_______________________________________________________________________________

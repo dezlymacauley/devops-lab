@@ -2,7 +2,7 @@
 .terraform/
 
 # Terraform State
-*.tfstate
+*.tfstate*
 
 # Environment Variables
 .env*
