@@ -1,0 +1,6 @@
+# IAC (Infastructure As Code) explained
+_______________________________________________________________________________
+
+IAC is about using tools like Terraform to create and manage Infastructure
+in a declarative way.
+_______________________________________________________________________________
