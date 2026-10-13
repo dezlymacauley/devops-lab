@@ -29,5 +29,20 @@ _______________________________________________________________________________
 
 Use these settings:
 
+- Resources to create: `VPC only`
+- Name tag: `demo-vpc`
+- IPv4 CIDR block: `IPv4 CIDR manual input`
+- IPv4 CIDR: `10.0.0.0/16`
 
+##### Note: The CIDR block sizes should always be between `/16` and `/28`
+
+- IPv6 CIDR block: No IPv6 CIDR block
+- Tenancy: Default
+- VPC encryption control ($): None
+
+### Tags
+- Key: `Name`, Value: `demo-vpc`
+_______________________________________________________________________________
+
+##### Note: Creating a VPC is free
 _______________________________________________________________________________
