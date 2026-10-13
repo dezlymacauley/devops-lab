@@ -1,3 +1,9 @@
+# SECTION: 1 => Plan
+
+# SECTION: 2 => Apply
+
+# SECTION: 3 => Destroy
+
 terraform {
 
   required_providers {
@@ -12,7 +18,7 @@ terraform {
 }
 
 provider "aws" {
-  rregion = "eu-north-1"  
+  region = "eu-north-1"  
 }
 
 resource "aws_vpc" "demo_vpc" {
@@ -37,7 +43,7 @@ resource "aws_route_table" "public_rtb" {
   vpc_id = aws_vpc.demo_vpc.id
 
   route = {
-    cidr_block = "0.0.0.0/"
+    cidr_block = "0.0.0.0/0"
     gateway_id = aws_internet_gateway.igw.id
   }
 
