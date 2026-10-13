@@ -106,5 +106,70 @@ _______________________________________________________________________________
 Click `Create subnet` to create both of these subnets for the `demo-vpc`
 _______________________________________________________________________________
 
+On the left sidebar, click `Internet gateways`
 
+You should see the `Internet gateway ID` for one internet gateway, 
+which is attached to the default VPC for the region.
+_______________________________________________________________________________
+
+### How to create a new internet gateway
+
+Click `Create internet gateway`
+
+- Name tag: `demo-igw`
+_______________________________________________________________________________
+
+After creating the internet gateway. 
+
+You will see that the state of the gateway is `detached` 
+(Not associated with any VPC)
+_______________________________________________________________________________
+
+Click on `Actions`, then click `Attach to VPC`
+
+- Available VPCs: Select the `demo-vpc`
+_______________________________________________________________________________
+
+In order to make a subnet public, that subnet has to be associated with a
+route table, that has an entry to an internet gateway.
+
+_______________________________________________________________________________
+
+On the left sidebar, click `Route tables`
+
+You should see the `Route table ID` for the default VPC, and the `demo-vpc`
+_______________________________________________________________________________
+
+Click `Create route table`
+
+- Name: `public-rt`
+- VPC: `demo-vpc`
+_______________________________________________________________________________
+
+After creating it, if you scroll down to `Routes`, you will see 
+a local route.
+
+- Destination: `10.0.0.0/16`
+- Target: `local`
+
+This route is not connected with any internet gateway.
+
+Leave this as it is
+_______________________________________________________________________________
+
+Click `Edit routes`, then click add route
+
+- `0.0.0.0/0` (A catch all IP CIDR block)
+
+Target:
+    -> `Internet Gateway`
+    -> Select the `demo-igw`
+
+Then click on `Save changes`
+_______________________________________________________________________________
+
+Click on the `subnet associations` tab,
+then click `Edit subnet associations`
+
+Select the `public-subnet`, then click `Save association`
 _______________________________________________________________________________
