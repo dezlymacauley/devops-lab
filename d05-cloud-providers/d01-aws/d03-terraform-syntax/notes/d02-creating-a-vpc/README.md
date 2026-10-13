@@ -20,3 +20,22 @@ Load the the environment variables from the `.env` file
 source .env
 ```
 _______________________________________________________________________________
+
+To check what actions Terraform will perform (without applying those actions
+to your infastructure), run this command.
+
+```bash
+terraform plan
+```
+_______________________________________________________________________________
+
+To update your infastructure, run this command
+```bash
+terraform apply
+```
+
+Type `yes` into the prompt and press Enter
+```
+Enter a value: yes
+```
+_______________________________________________________________________________
