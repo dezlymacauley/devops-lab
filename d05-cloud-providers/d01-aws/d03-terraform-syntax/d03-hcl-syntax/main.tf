@@ -28,10 +28,6 @@ resource "aws_s3_bucket" "my_bucket" {
   bucket = "my-sample-bucket"
 }
 
-resource "aws_s3_bucket" "my_bucket2" {
-  
-}
-
 // When you want to create a piece of AWS infastructure that is not managed
 // by you. Managed somewhere else but you want to use it in your project
 data "aws_s3_bucket" "my_external_bucket" {
@@ -42,5 +38,22 @@ data "aws_s3_bucket" "my_external_bucket" {
 
 // SECTION: Variables
 
+// Declaring a variable
+variable "bucket_name" {
+  type = string 
+  description = "my variable used to set bucket name"
+  default = "my_default_bucket_name"
+}
+
+// Using the variable
+resource "aws_s3_bucket" "my_bucket2" {
+  bucket = var.bucket_name
+}
+
+//_____________________________________________________________________________
+
+// SECTION: Output
+
+// This allows you to expose information to the outside world
 
 //_____________________________________________________________________________
