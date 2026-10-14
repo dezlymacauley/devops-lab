@@ -56,4 +56,11 @@ resource "aws_s3_bucket" "my_bucket2" {
 
 // This allows you to expose information to the outside world
 
+output "bucket_id" {
+  value = aws_s3_bucket.my_bucket.id
+}
+
+//_____________________________________________________________________________
+
+
 //_____________________________________________________________________________
