@@ -62,5 +62,24 @@ output "bucket_id" {
 
 //_____________________________________________________________________________
 
+// SECTION: Locals
+
+// This is used to set temporary variables
+
+locals {
+  local_example = "This is a local variable" 
+}
+
+resource "aws_vpc" "squirrel_app" {
+    cidr_block = "10.0.0.0/16"
+
+    tags = {
+        Name = local.local_example
+    }
+}
+
+//_____________________________________________________________________________
+
+
 
 //_____________________________________________________________________________
