@@ -80,6 +80,13 @@ resource "aws_vpc" "squirrel_app" {
 
 //_____________________________________________________________________________
 
+// SECTION: Modules
 
+// This is use whe you have a directory that contains some Terraform code
+// that you want to import.
+
+module "my_module" {
+  source = "./module-example" 
+}
 
 //_____________________________________________________________________________
