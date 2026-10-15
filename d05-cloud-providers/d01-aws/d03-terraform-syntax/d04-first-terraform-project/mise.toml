@@ -2,3 +2,6 @@
 aws-cli = { version = "latest", symlink_bins = "true" }
 terraform = "latest"
 "github:hashicorp/terraform-ls" = "latest"
+
+[shell_alias]
+fmt-all = "terraform fmt --recursive"
