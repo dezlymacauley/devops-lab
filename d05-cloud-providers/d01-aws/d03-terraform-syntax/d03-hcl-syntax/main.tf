@@ -1,7 +1,13 @@
 /*
   The `terraform` block is used to configure the Terraform project
+
+  Only constants are allowed inside the Terraform block.
+
 */
 terraform {
+
+  // Sets the version of Terraform required for the project
+  required_version = "1.16.5"
 
   // This is where you list the infastructure providers 
   // that you will be interacting with
@@ -9,8 +15,18 @@ terraform {
 
     aws = {
       source = "hashicorp/aws"
-      version = "5.37.0"
+
+      // The `~>` Makes the rightmost digit flexible
+      // So this means: 5.37.0, 5.37.1, 5.37.2 ... are valid
+      // 5.38.0 or 6.38.0 will not be valid.
+      version = "~> 5.37.0"
     }
+  }
+
+  // This is used to configure what backend will be used to store the state
+  // of the project
+  backend "s3" {
+    
   }
 
 }
