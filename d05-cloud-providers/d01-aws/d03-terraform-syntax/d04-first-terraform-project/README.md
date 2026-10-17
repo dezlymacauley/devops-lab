@@ -43,5 +43,21 @@ bucket_name = "example-bucket-cf5efada56f2"
 _______________________________________________________________________________
 
 
+Run this cmmand to see what Terraform will destroy,
+without destroying your infastructure.
+```bash
+terraform plan -destroy
+```
+_______________________________________________________________________________
 
+To destroy the infastructure
+```bash
+terraform destroy
+```
+_______________________________________________________________________________
+
+Then run this command to confirm that everything has been deleted
+```bash
+terraform state list
+```
 _______________________________________________________________________________
