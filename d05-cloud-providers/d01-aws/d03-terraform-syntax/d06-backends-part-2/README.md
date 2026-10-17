@@ -11,8 +11,8 @@ _______________________________________________________________________________
 After creating your `.tf` files, run this command
 ```bash
 terraform init \
-    -reconfigure \
-    -backend-config="dev.s3.tfbackend" \
+    -backend-config="prod.s3.tfbackend" \
+    -migrate-state
 ```
 _______________________________________________________________________________
 
