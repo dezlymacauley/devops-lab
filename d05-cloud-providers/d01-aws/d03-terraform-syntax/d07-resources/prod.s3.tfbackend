@@ -1,0 +1,3 @@
+bucket = "devops-lab-terraform-backends"
+key = "d06-backends-part-2/prod/state.tfstate"
+region = "eu-north-1"
