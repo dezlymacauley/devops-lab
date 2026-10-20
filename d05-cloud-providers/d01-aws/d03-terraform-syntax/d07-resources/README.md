@@ -16,8 +16,40 @@ _______________________________________________________________________________
 
 _______________________________________________________________________________
 
+Create a Terraform configuration file for the providers
+```bash
+touch providers.tf
+```
+_______________________________________________________________________________
+
+Add this to the file
+```terraform
+terraform {
+  required_version = "~> 1.16.5"
+  required_providers {
+
+    aws = {
+      source  = "hashicorp/aws"
+      version = "~> 6.69.1"
+    }
+
+  }
+}
+```
+_______________________________________________________________________________
+
 Load 
 ```bash
 source .env
 ```
+_______________________________________________________________________________
+
+Initialize Terraform
+```bash
+terraform init
+```
+
+#### Note: 
+- This command will take a while because it needs to download the AWS plugin
+for Terraform.
 _______________________________________________________________________________
