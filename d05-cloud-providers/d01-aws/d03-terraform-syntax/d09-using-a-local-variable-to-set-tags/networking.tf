@@ -103,9 +103,13 @@ locals {
 resource "aws_vpc" "main_vpc" {
   cidr_block = "10.0.0.0/16"
 
+  // NOTE: The tag `Name` must be called that.
+  // This is what AWS and Floci (Local Cloud) will use as the resource name
+  // in their respective User Interfaces
+  
   tags = merge(
     local.shared_tags,
-    { ResourceName = "${local.shared_tags.ProjectName}: main_vpc" }
+    { Name = "${local.shared_tags.ProjectName}: main_vpc" }
   )
 
   /*
@@ -126,7 +130,7 @@ resource "aws_subnet" "public_subnet" {
 
   tags = merge(
     local.shared_tags,
-    { ResourceName = "${local.shared_tags.ProjectName}: public_subnet" }
+    { Name = "${local.shared_tags.ProjectName}: public_subnet" }
   )
 
 }
@@ -139,7 +143,7 @@ resource "aws_internet_gateway" "main_internet_gateway" {
 
   tags = merge(
     local.shared_tags,
-    { ResourceName = "${local.shared_tags.ProjectName}: main_internet_gateway" }
+    { Name = "${local.shared_tags.ProjectName}: main_internet_gateway" }
   )
 }
 
@@ -153,7 +157,7 @@ resource "aws_route_table" "public_route_table" {
 
   tags = merge(
     local.shared_tags,
-    { ResourceName = "${local.shared_tags.ProjectName}: public_route_table" }
+    { Name = "${local.shared_tags.ProjectName}: public_route_table" }
   )
 
 }
