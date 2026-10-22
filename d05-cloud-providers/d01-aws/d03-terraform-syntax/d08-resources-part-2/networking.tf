@@ -96,7 +96,7 @@ resource "aws_vpc" "main_vpc" {
 
   tags = {
     // This is the name of the project
-    Name      = "custom-project"
+    Name      = "custom-project: main_vpc"
     ManagedBy = "terraform"
   }
 }
@@ -141,4 +141,5 @@ resource "aws_route_table" "public_route_table" {
 resource "aws_route_table_association" "public_route_table_association" {
   subnet_id      = aws_subnet.public_subnet.id
   route_table_id = aws_route_table.public_route_table.id
+  // An `aws_route_table_association` does not support tags
 }
