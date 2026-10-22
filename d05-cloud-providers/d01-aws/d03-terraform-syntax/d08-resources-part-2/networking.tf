@@ -95,17 +95,27 @@ resource "aws_vpc" "main_vpc" {
   cidr_block = "10.0.0.0/16"
 
   tags = {
+    // This is the name of the project
     Name      = "custom-project"
     ManagedBy = "terraform"
   }
 }
 
-resource "aws_subnet" "public" {
+resource "aws_subnet" "public_subnet" {
   vpc_id     = aws_vpc.main_vpc.id
   cidr_block = "10.0.0.0/24"
 
   tags = {
-    Name      = "custom-project-public-subnet"
+    Name      = "custom-project: public_subnet"
+    ManagedBy = "terraform"
+  }
+}
+
+resource "aws_internet_gateway" "main_internet_gateway" {
+  vpc_id = aws_vpc.main_vpc.id
+  
+  tags = {
+    Name      = "custom-project: main_internet_gateway"
     ManagedBy = "terraform"
   }
 }
