@@ -53,3 +53,11 @@ terraform init
 - This command will take a while because it needs to download the AWS plugin
 for Terraform.
 _______________________________________________________________________________
+
+To check the Terraform version of your project and confirm the version of
+AWS that you are using, run the following commands:
+
+```bash
+terraform version
+```
+_______________________________________________________________________________
