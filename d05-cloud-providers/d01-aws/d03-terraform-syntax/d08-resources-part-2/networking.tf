@@ -111,11 +111,34 @@ resource "aws_subnet" "public_subnet" {
   }
 }
 
+// Ingress and egress traffic
+// Sending data to the public internet and accepting data from the public
+// internet.
 resource "aws_internet_gateway" "main_internet_gateway" {
   vpc_id = aws_vpc.main_vpc.id
-  
+
   tags = {
     Name      = "custom-project: main_internet_gateway"
     ManagedBy = "terraform"
   }
+}
+
+resource "aws_route_table" "public_route_table" {
+  vpc_id = aws_vpc.main_vpc.id
+
+  route {
+    cidr_block = "0.0.0.0/0"
+    gateway_id = aws_internet_gateway.main_internet_gateway.id
+  }
+
+  tags = {
+    Name      = "custom-project: public_route_table"
+    ManagedBy = "terraform"
+  }
+
+}
+
+resource "aws_route_table_association" "public_route_table_association" {
+  subnet_id      = aws_subnet.public_subnet.id
+  route_table_id = aws_route_table.public_route_table.id
 }
