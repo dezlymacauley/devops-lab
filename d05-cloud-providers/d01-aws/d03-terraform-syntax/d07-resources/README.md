@@ -35,6 +35,38 @@ terraform {
 
   }
 }
+
+provider "aws" {
+  region = "eu-north-1"
+}
+```
+_______________________________________________________________________________
+
+Create a `networking.tf` file
+```bash
+touch networking.tf
+```
+
+Add this to the file
+```terraform
+resource "aws_vpc" "main_vpc" {
+  cidr_block = "10.0.0.0/16"
+
+  tags = {
+    Name      = "custom-project"
+    ManagedBy = "terraform"
+  }
+}
+
+resource "aws_subnet" "public" {
+  vpc_id     = aws_vpc.main_vpc.id
+  cidr_block = "10.0.0.0/24"
+
+  tags = {
+    Name      = "custom-project-public-subnet"
+    ManagedBy = "terraform"
+  }
+}
 ```
 _______________________________________________________________________________
 
@@ -59,5 +91,23 @@ AWS that you are using, run the following commands:
 
 ```bash
 terraform version
+```
+_______________________________________________________________________________
+
+Run this to see what will be created
+```bash
+terraform plan
+```
+_______________________________________________________________________________
+
+Run this to create the infastructure on AWS 
+```bash
+terraform apply
+```
+_______________________________________________________________________________
+
+When you are done, run this command
+```bash
+terraform destroy
 ```
 _______________________________________________________________________________

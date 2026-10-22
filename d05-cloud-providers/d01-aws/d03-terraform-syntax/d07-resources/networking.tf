@@ -52,6 +52,41 @@
   What are acceptable values?
 
   Any whole number from 0 to 32
+
+  The larger the CIDR prefix, the smaller the number of addresses the network
+  will have.
+
+  10.0.0.0/32	
+    -> This means only 1 available ipv4 address
+
+  10.0.0.0/0 
+   -> This means 4,294,967,296 available ip addresses
+   -> Anything that is an ipv4 addresses is valid on the network
+
+  Those two are extremes.
+  _____________________________________________________________________________
+
+  10.0.0.0/8 
+    -> This means 16,777,216 addresses	
+    -> This is a very large network
+
+  10.0.0.0/16	
+    -> This mean 65,536 available ipv4 addresses
+    -> This is a Large network
+
+  10.0.0.0/24
+    -> This mean 256 available ipv4 addresses
+    -> This is a Small network
+
+  _____________________________________________________________________________
+  
+  You'd normally choose a CIDR block of 16
+
+  Then you'd have a sub network inside of that that is 24
+
+  A sub network (aka a subnet) is a smaller network inside your VPC.
+
+  This is useful for when your want to create section inside your VPC.
   _____________________________________________________________________________
 
 */
@@ -60,8 +95,17 @@ resource "aws_vpc" "main_vpc" {
   cidr_block = "10.0.0.0/16"
 
   tags = {
-    ManagedBy = "Terraform"
-    // This would be the name of the directory
-    Project = "My Custom Project"
+    Name      = "custom-project"
+    ManagedBy = "terraform"
+  }
+}
+
+resource "aws_subnet" "public" {
+  vpc_id     = aws_vpc.main_vpc.id
+  cidr_block = "10.0.0.0/24"
+
+  tags = {
+    Name      = "custom-project-public-subnet"
+    ManagedBy = "terraform"
   }
 }
