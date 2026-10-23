@@ -42,6 +42,7 @@ d-tidy = "mise d-tidy"
 f-start = "mise f-start"
 f-status = "mise f-status"
 f-stop = "mise f-stop"
+f-destroy = "sudo rm -rf ~/.floci-aws-data"
 
 # SUB_SECTION: ☸️ kubectl
 k8 = "mise k8"
