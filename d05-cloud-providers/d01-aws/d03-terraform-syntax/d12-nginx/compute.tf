@@ -50,6 +50,10 @@ resource "aws_instance" "web_ec2" {
     volume_type           = "gp3"
   }
 
+  lifecycle {
+    create_before_destroy = true
+  }
+
 }
 
 resource "aws_security_group" "public_http_traffic_security_group" {
