@@ -28,6 +28,35 @@ _______________________________________________________________________________
 
 ## IAM User Groups
 
-This is a functionality
+- This is a functionality that allows you group the IAM Users in your account.
+_______________________________________________________________________________
 
+- An `IAM User` can belong to multiple groups.
+
+E.g. 
+
+You can have an `IAM User` called `dezly`,
+that is part of the `rust-developers` group, 
+and also part of the `mlops-engineers` groups.
+
+You can have an `IAM User` called `cassie` that is part of 
+the `database-developer` group.
+
+You can have an `IAM User` called `seth` that is part of 
+the `svelte-developer` group.
+_______________________________________________________________________________
+
+E.g. 
+
+The main purpose of an IAM user group is that you can disable all permissions  
+for the group, and then only enable the permissions 
+that the group requires to do their job.
+
+This is called the `least privillage principal`,
+you only give the user the least amount of permissions on AWS that they
+require to for their functionality.
+
+E.g. `IAM User` called `seth` is in the `svelte-developer` group,
+so that user should probably not have permission to delete data that
+the MLOps Engineers are working on.
 _______________________________________________________________________________
