@@ -46,7 +46,8 @@ _______________________________________________________________________________
 Click `Create user`
 _______________________________________________________________________________
 
-E.g. 
+Select the following options:
+
 - User name: `dezly`
 - Provide user access to the AWS Management Console `Select this option`
 
@@ -57,8 +58,23 @@ E.g.
 - Users must create a new password at next sign-in: `Uncheck this`
 
 #### Note:
-- Each IAM user in the account must have the same name.
+- Each IAM user in the account must have a different name.
 _______________________________________________________________________________
 
 Click `next`
+_______________________________________________________________________________
+
+Select the IAM User Group `aws-account-admins` to add 
+the IAM user `dezly` IAM user to the group.
+_______________________________________________________________________________
+
+Click `next`
+_______________________________________________________________________________
+
+Add the following tags
+
+- Key: `permission-group`, Value: `aws-account-admins`
+_______________________________________________________________________________
+
+Click `create user`
 _______________________________________________________________________________
