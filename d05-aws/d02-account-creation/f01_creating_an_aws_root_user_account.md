@@ -87,6 +87,26 @@ Select this option to set the AWS console appearance to dark mode.
 - Visual mode: `dark`
 _______________________________________________________________________________
 
+Click on your account name, 
+the scroll down and select `turn on multi-session support`
+
+The word `root` should appear below your account name.
+
+- This will enable you to log into to multiple accounts using 
+the same browser.
+
+- It's also useful because it means that you won't get logged out 
+when signing into another account.
+_______________________________________________________________________________
+
+#### Note: 
+- You won't be able to use it at this point because there the `root` user
+is currently the only user on your AWS account.
+
+When you do have multiple accounts, click on the account name,
+then scroll down and click `Add session`
+_______________________________________________________________________________
+
 Click on your account name on the top right, then click `Account`
 _______________________________________________________________________________
 
