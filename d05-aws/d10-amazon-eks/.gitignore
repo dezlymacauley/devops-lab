@@ -1,0 +1,8 @@
+# Terraform Initialization
+.terraform/
+
+# Terraform State
+*.tfstate*
+
+# Environment Variables
+.env
