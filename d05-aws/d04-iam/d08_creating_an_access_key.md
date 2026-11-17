@@ -14,7 +14,7 @@ _______________________________________________________________________________
 Select this option:
 
 - Use case: `Command Line Interface (CLI)`
-- Description tag: `ftawsoct2026dezlymacauley_aws_cli_access_key_dezly_2026_10_29`
+- Description tag: `aws_cli_key_iam_user_dezlymacauley_ftawsoct2026dezlymacauley_220474267718`
 
 #### Note: 
 - For the `Description tag` I prefer this format:

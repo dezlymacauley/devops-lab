@@ -48,7 +48,7 @@ _______________________________________________________________________________
 
 Select the following options:
 
-- User name: `dezly`
+- User name: `dezlymacauley`
 - Provide user access to the AWS Management Console `Select this option`
 
 - Console password `Custom password`
