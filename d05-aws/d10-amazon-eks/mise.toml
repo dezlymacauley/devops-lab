@@ -1,5 +1,5 @@
 [env]
-_.file = ".env"   
+_.file = ".env"
 #______________________________________________________________________________
 
 [tools]
@@ -12,4 +12,9 @@ terraform = "latest"
 
 [shell_alias]
 tree = "eza --tree --git-ignore --all"
+setup = '''
+  terraform init \
+    -backend-config="bucket=$AWS_S3_BUCKET_FOR_TERRAFORM_STATE" \
+    -backend-config="region=$AWS_DEFAULT_REGION"
+'''
 #______________________________________________________________________________
