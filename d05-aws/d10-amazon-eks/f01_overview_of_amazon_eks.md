@@ -37,7 +37,6 @@ which is notoriously difficult to maintain.
 
 Amazon EKS is short for "Amazon Elastic Kubernetes Service"
 
-
 It is a managed Kubernetes control plane.
 
 AWS handles the Control Plane (The "Brain"): 
@@ -52,6 +51,14 @@ You control the Worker Nodes & Workloads (The "Muscle"):
 hese are the actual servers (EC2 instances) where your application 
 containers (pods) run, and the configuration manifests 
 you write to tell Kubernetes what to do. You control this part.
+
+One major advantage of Amazon EKS is that the `ectd` to placed on different
+availability zones.
+
+This is a standard Kubernetes Cluster, it is not an AWS fork. So you are
+not locked into an AWS specific DSL (domain specific language).
+
+The disadvantage of using `Amazon EKS` is that you are billed per hour.
 _______________________________________________________________________________
 
 ## What is the `reconciliation loop`?
@@ -72,4 +79,25 @@ to the `Desired State` and then take some action to correct this.
 EKS manages the underlying infrastructure that runs that loop for you, 
 while you are responsible for deploying your app manifests 
 and managing the worker nodes where your apps actually live.
+_______________________________________________________________________________
+
+## Control Plane (Managed by `Amazon EKS`)
+
+If you are not using `Amazon EKS` then you have to manage this yourself.
+
+- kube-scheduler: Assigns pods to nodes
+- controller-manager: Runs the reconciliation loop
+- kube-apiserver: A single entry point
+- etcd: Stores the state of the Kubernetes cluster
+_______________________________________________________________________________
+
+## Data Plane (This is where your pods run)
+
+This is the part that you control
+
+Contains multiple worker nodes.
+
+Each worker node is linked to a specific availability zone has a kublet
+
+And each kublet has multiple pods.
 _______________________________________________________________________________
