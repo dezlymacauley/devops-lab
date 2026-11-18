@@ -1,4 +1,5 @@
 
+
 AWS services have two kinds of billing 
 
 ## Fixed Cost
@@ -122,4 +123,69 @@ _______________________________________________________________________________
 - Current Generation:	Yes
 - Potential Effective Hourly Cost:	$0.0078
 - Potential Savings:	62%
+_______________________________________________________________________________
+
+Payment options
+
+For development Select `Spot Instances`
+
+For production select `On-Demand`
+
+```
+2 instances x 0.0416 USD On Demand hourly cost x 730 hours in a month = 60.736000 USD
+On-Demand instances (monthly): 60.736000 USD
+```
+
+If you select Spot Instances
+```
+Unit conversions
+
+Spot discount: 60/100 = 0.6
+Pricing calculations
+
+2 instances x 0.0416 USD On Demand hourly cost x 730 hours in a month = 60.736000 USD
+60.736000 USD - (60.736000 USD x 0.6) = 24.294400 USD
+Spot instances (monthly): 24.294400 USD
+```
+_______________________________________________________________________________
+
+Scroll down to the `EBS (Elastic block storage)`
+
+This this is the storage space that is available for each EC2 
+
+Select the following options
+
+- Storage for each EC2 instance: `General Purpose SSD (gp3)`
+- General Purpose SSD (gp3) - IOPS (gp3 supports a max of 80,000 IOPS per volume)
+    - Enter this value `3000`
+
+- General Purpose SSD (gp3) - Throughput (gp3 supports a max of 2000 MBps 
+per volume)
+
+Enter these settings: 
+- Value: `125`, Unit: `MBps`
+- Storage Amount: `20`, Unit: `GB`
+
+- Snapshot Frequency: `No Snapshot Storage`
+
+This should be the cost estimate:
+```
+1,460 total EC2 hours / 730 hours in a month = 2.00 instance months
+
+20 GB x 2.00 instance months x 0.08 USD = 3.20 USD (EBS Storage Cost)
+
+EBS Storage Cost: 3.20 USD
+
+30,000 iops - 3000 GP3 iops free = 27,000.00 billable gp3 iops
+
+Max (27000.00 iops, 0 minimum billable iops) = 27,000.00 total billable gp3 iops
+
+27,000.00 iops x 2.00 instance months x 0.005 USD = 270.00 USD (EBS IOPS gp3 Cost)
+
+125 MBps - 125 GP3 MBps free = 0.00 billable MBps
+
+3.20 USD + 270.00 USD = 273.20 USD (Total EBS storage cost)
+
+Amazon Elastic Block Store (EBS) total cost (monthly): 273.20 USD
+```
 _______________________________________________________________________________
