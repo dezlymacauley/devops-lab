@@ -61,9 +61,15 @@ Encryption type: `Server-side encryption with Amazon S3 managed keys (SSE-S3)`
 Bucket key: `Enable`
 _______________________________________________________________________________
 
-## Initialiaze the project:
+## Initialiaze the project
 ```bash
 cd terraform-files
 terraform init
+```
+_______________________________________________________________________________
+
+## Confirm that your current Terraform configuration is valid
+```bash
+terraform validate
 ```
 _______________________________________________________________________________
