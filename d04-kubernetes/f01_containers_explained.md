@@ -1,0 +1,6 @@
+# Containers Explained
+_______________________________________________________________________________
+
+A lightweight environment that isolates your application. It contains all
+the resources and dependencies needed to run that application.
+_______________________________________________________________________________
