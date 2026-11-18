@@ -31,4 +31,6 @@ Tags:
 - Key: `devops_lab`, Value: `amazon_eks`
 
 Encryption type: `Server-side encryption with Amazon S3 managed keys (SSE-S3)`
+
+Bucket key: `Enable`
 _______________________________________________________________________________

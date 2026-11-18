@@ -13,15 +13,6 @@ terraform = "latest"
 [shell_alias]
 menu = "echo; mise shell-alias ls; echo"
 setup = '''
-if aws s3api head-bucket --bucket "$AWS_S3_BUCKET_FOR_TFSTATE" 2>/dev/null; then
-  echo "Bucket $AWS_S3_BUCKET_FOR_TFSTATE already exists."
-else
-  echo "Creating bucket $AWS_S3_BUCKET_FOR_TFSTATE..."
-  aws s3api create-bucket \
-    --bucket "$AWS_S3_BUCKET_FOR_TFSTATE" \
-    --region "$AWS_DEFAULT_REGION"
-fi;
-
 terraform init \
   -backend-config="bucket=$AWS_S3_BUCKET_FOR_TFSTATE" \
   -backend-config="region=$AWS_DEFAULT_REGION"

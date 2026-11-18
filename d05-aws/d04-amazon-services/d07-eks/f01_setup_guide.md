@@ -51,10 +51,12 @@ Block all public acess: `Ensure that this is checked`
 Bucket versioning: `Enable`
 
 Tags:
-- Key: `managed_by`, Value: `aws_console`
+- Key: `created_using`, Value: `aws_console`
 - Key: `project_name`, Value: `devops_lab_amazon_eks`
 
 Encryption type: `Server-side encryption with Amazon S3 managed keys (SSE-S3)`
+
+Bucket key: `Enable`
 _______________________________________________________________________________
 
 ## Todo (Don't execute yet)
