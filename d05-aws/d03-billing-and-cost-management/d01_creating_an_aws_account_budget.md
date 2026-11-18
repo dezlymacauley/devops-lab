@@ -1,4 +1,4 @@
-# Creating a budget
+# Creating an AWS account budget
 _______________________________________________________________________________
 
 Login using the `AWS Root Account` user
