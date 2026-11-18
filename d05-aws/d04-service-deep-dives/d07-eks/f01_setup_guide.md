@@ -42,7 +42,9 @@ and must be unique accross AWS.
 - So you normally add a bunch of random number to the end of bucket name
 to ensure that no other AWS account in the world has this bucket name
 - Ensure that this the bucket name is the same as the value for 
-`AWS_S3_BUCKET_FOR_TERRAFORM_STATE` in the `.env` file of your project.
+`bucket` in the `terraform-files/backend.tf` of your project
+
+_______________________________________________________________________________
 
 Object ownership: `ACLs disabled (Recommended)`
 
@@ -59,8 +61,9 @@ Encryption type: `Server-side encryption with Amazon S3 managed keys (SSE-S3)`
 Bucket key: `Enable`
 _______________________________________________________________________________
 
-## Todo (Don't execute yet)
-To initialiaze the project:
+## Initialiaze the project:
+```bash
 cd terraform-files
-setup
+terraform init
+```
 _______________________________________________________________________________
