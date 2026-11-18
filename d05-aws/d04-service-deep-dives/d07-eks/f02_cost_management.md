@@ -94,5 +94,32 @@ Select the following options
 
 - Workloads: `Constant usage`
 - Number of Instances: `2` (This means 1 node in each AWS availability zone)
-- Search Instance type: `t3.small`
+- Search Instance type: `t3.medium`
+_______________________________________________________________________________
+
+#### These are the specs for the computers
+
+## t3.medium
+### Attribute	Value
+- Instance Name:	t3.medium
+- vCPUs:	2
+- Memory:	4 GiB
+- Network Performance:	Up to 5 Gigabit
+- Storage:	EBS only
+- On-Demand Hourly Cost:	$0.0416
+- Current Generation:	Yes
+- Potential Effective Hourly Cost:	$0.0156
+- Potential Savings:	62%
+
+## t3.small
+### Attribute	Value
+- Instance Name:	t3.small
+- vCPUs:	2
+- Memory:	2 GiB
+- Network Performance:	Up to 5 Gigabit
+- Storage:	EBS only
+- On-Demand Hourly Cost:	$0.0208
+- Current Generation:	Yes
+- Potential Effective Hourly Cost:	$0.0078
+- Potential Savings:	62%
 _______________________________________________________________________________
