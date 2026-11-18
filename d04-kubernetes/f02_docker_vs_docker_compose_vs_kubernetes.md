@@ -18,8 +18,9 @@ on different machines.
 Kubernetes allows you control which machine each container 
 will be running on.
 
-Kubernetes allows you to set an auto-restart policy on a container so that
-it automatically restarts if the container crashes for whatever reason.
+Kubernetes allows you to set an auto-restart policy on the container in a pod
+so that so that the container is automatically restarted if it crashes 
+for whatever reason.
 
 Kubernetes handles scaling by allowing you to increase or decrease 
 the number of instances of your application.
