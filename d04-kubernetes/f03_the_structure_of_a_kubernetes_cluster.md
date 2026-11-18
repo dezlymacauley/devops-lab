@@ -73,24 +73,38 @@ And each pod will have 1 or more containers.
 _______________________________________________________________________________
 
 E.g.
+
+- This is a Kubernetes cluster with 2 worker nodes (aka 2 computers)
+
+- Computer 1 is running 3 containers.
+- Those containers are grouped usin two pods (Pod A and Pod B)
+
+- Computer 2 is running 2 containers.
+- Those containers are grouped usin two pods (Pod C and Pod D)
+
 ```
-└── Worker Nodes
+☸️ Kubernetes Cluster (The entire app: Frontend and Backend)
+│
+└── Worker Nodes (The computers running in the Kubernetes cluster)
     │
-    ├── Worker Node 1
+    ├── 💻 Worker Node 1 (Computer 1)
     │   │
-    │   ├── Pod A
-    │   │   ├── Container
-    │   │   └── Container
+    │   ├── Pod A: 🎨 Website User Interface
+    │   │   ├── Container: SvelteKit (JavaScript framework)
+    │   │   └── Container: File Processor (E.g. Images uploaded to the site)
     │   │
-    │   └── Pod B
-    │       └── Container
+    │   └── Pod B: ⚙️ Backend API
+    │       └── Container: Axum (Rust backend framework for handling requests)
+    │
+    └── 💻 Worker Node 2 (Computer 2)
+        │
+        ├── Pod C: 🤖 AI Functionality
+        │   └── Container: LangChain app (Python framwork for AI powered apps)
+        │
+        └── Pod D: 🗃️ Database
+            └── Container: Postgres (Relational Database that uses SQL)
 ```
 
-This is a worker node (a computer), that has 3 containers.
-
-The containers are grouped into pods.
-
-Pod A has two containers, and Pod B has one container.
 _______________________________________________________________________________
 
 ## The Control Plane
