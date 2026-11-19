@@ -1,7 +1,24 @@
 /*
+  
+  ABOUT: f03_variables.tf
 
+  _____________________________________________________________________________
+  If you want to print out these variables,
+  run this command:
 
- */
+  terraform apply
+  _____________________________________________________________________________
+
+  Then run this command to enter the terraform prompt:
+  terraform console
+  _____________________________________________________________________________
+
+  You can then print out variables like this:
+
+  var.name_of_varible
+
+  _____________________________________________________________________________
+*/
 
 variable "cluster_name" {
   description = <<-EOF
