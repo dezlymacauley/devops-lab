@@ -1,60 +1,105 @@
 # Subnet Math
 _______________________________________________________________________________
 
-## IP address in decimal format
+## IP address in decimal format (aka base-10)
 
-In decimal format (aka base-10), an IP address is made up of 4 octets. 
-
-This is 4 values separated by a dot.
-
+- An IP Address is made up of four values separated by a dot.
+- Each of those four numbers is called an octet.
+- So an IP address has four octets.
 _______________________________________________________________________________
 
-Each of the 4 values can be a number from 0 to 255
-
-Example 1:
-
-`0.0.0.0`
-
-
-
+Each of the four octets can be a value from 0 to 255 (inclusive)
+- Example 1:    `0.0.0.0`
+- Example 2:    `255.255.255.255` 
 _______________________________________________________________________________
 
 ## IP address in binary format
 
-- Each of those 4 numbers that are separated by dots is called an octet.
-- Each octet is made up of 8 bits.
-- So if you wanted to write that `0` in binary format,
-it would be written as: 
+If you want to write an octet in binary format (aka base-2), 
+you use something called `place values`
 
-`00000000` (1 octet = 8 zeros)
+Each octet = 8 bits
+
+| Place values                  | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |
+| ----------------------------- | --- | -- | -- | -- | - | - | - | - |
+| 💡 Switch (1 = on, 0 = off)   | 0   | 0  | 0  | 0  | 0 | 0 | 0 | 0 |
 _______________________________________________________________________________
 
-So if you wanted to write `0.0.0.0` in binary format,
-it would be written as: 
+## The room analogy
 
+- Each octet is a building with 8 rooms.
+- Each room has a fixed price (its place value).
+- A light switch in each room is either on (`1`) or off (`0`).
+- You only pay for rooms with the light on.
+- The total bill is the decimal number.
 
-`00000000`.`00000000`.`00000000`.`00000000` (4 octets = 32 zeroes)
-
-`4 octets × 8 bits = 32 bits`
+Example: lights on in the 8 and 2 rooms → 8 + 2 = `10` → `00001010`
 _______________________________________________________________________________
 
+## Example 1: 0.0.0.0
 
 
+| Octet 1  | Octet 2  | Octet 3  | Octet 4  |
+| -------- | -------- | -------- | -------- |
+| 0        | 0        | 0        | 0        |
+| 00000000 | 00000000 | 00000000 | 00000000 |
 
 
+| Room                       | 1   | 2  | 3  | 4  | 5 | 6 | 7 | 8 |
+| -------------------------- | --- | -- | -- | -- | - | - | - | - |
+| Price (place value)        | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |
+| 💡 Light (1 = on, 0 = off) | 0   | 0  | 0  | 0  | 0 | 0 | 0 | 0 |
+
+- No lights are on, so you pay for nothing.
+- Total bill: 0
+- Binary: `00000000`
+
+So `0.0.0.0` in binary is `00000000.00000000.00000000.00000000` 
+_______________________________________________________________________________
+
+## Example 2: 255.255.255.255
 
 
-## Step 1: `What is binary`?
+| Octet 1  | Octet 2  | Octet 3  | Octet 4  |
+| -------- | -------- | -------- | -------- |
+| 255      | 255      | 255      | 255      |
+| 11111111 | 11111111 | 11111111 | 11111111 |
 
-Binary is just counting using only 0s and 1s. 
-Each position in a binary number has a value, 
-and those values double as you go left:
 
-0 means off or skip this value
-1 means on or include this value
+| Room                       | 1   | 2  | 3  | 4  | 5 | 6 | 7 | 8 |
+| -------------------------- | --- | -- | -- | -- | - | - | - | - |
+| Price (place value)        | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |
+| 💡 Light (1 = on, 0 = off) | 1   | 1  | 1  | 1  | 1 | 1 | 1 | 1 |
 
-```
-Place value:    128  64  32  16  8  4  2  1
-On or off:        0   0   0   0  0  0  0  0
-```
+- All lights are on, so you pay for every room.
+- Total bill: 128 + 64 + 32 + 16 + 8 + 4 + 2 + 1 = 255
+- Binary: `11111111`
+
+So `255.255.255.255` in binary is `11111111.11111111.11111111.11111111` 
+_______________________________________________________________________________
+
+## Example 3: 10.0.0.0
+
+This address has four octets, and only the first one has any lights on.
+
+| Room                       | 1   | 2  | 3  | 4  | 5 | 6 | 7 | 8 |
+| -------------------------- | --- | -- | -- | -- | - | - | - | - |
+| Price (place value)        | 128 | 64 | 32 | 16 | 8 | 4 | 2 | 1 |
+| 💡 Light (1 = on, 0 = off) | 0   | 0  | 0  | 0  | 1 | 0 | 1 | 0 |
+
+- Lights are on in the 8 room and the 2 room.
+- Total bill: 8 + 2 = 10
+- Binary: `00001010`
+
+The other three octets are `0`, so all their lights are off (`00000000`).
+
+| Octet 1  | Octet 2  | Octet 3  | Octet 4  |
+| -------- | -------- | -------- | -------- |
+| 10       | 0        | 0        | 0        |
+| 00001010 | 00000000 | 00000000 | 00000000 |
+
+- **Decimal:** `10.0.0.0`
+- **Binary:** `00001010.00000000.00000000.00000000`
+- **Total bits:** 4 octets × 8 bits = 32 bits
+
 _______________________________________________________________________________
