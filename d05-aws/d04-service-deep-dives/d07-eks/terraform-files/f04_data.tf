@@ -1,4 +1,5 @@
-data "aws_region" "current" {}
+data "aws_region" "current" {
+}
 
 data "aws_availability_zones" "available" {
   state = "available"
@@ -9,9 +10,9 @@ data "aws_availability_zones" "available" {
   }
 }
 
-output "azs" {
-  value = data.aws_availability_zones.available.names
-}
+# output "azs" {
+#   value = data.aws_availability_zones.available.names
+# }
 
 /*
 
