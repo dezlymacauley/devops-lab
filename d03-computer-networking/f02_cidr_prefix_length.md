@@ -1,21 +1,6 @@
 # CIDR prefix length
 _______________________________________________________________________________
 
-## IPv4 address in decimal format (aka base-10)
-
-- an IPv4 address is made up of four digits.
-
-- The lowest value that each of those four digits can be set to is `0`
-- E.g. `0.0.0.0`
-
-- The highest value that each of those four digits can be set to is `255`
-- E.g. `255.255.255.255`
-_______________________________________________________________________________
-
-## IPv4 address in decimal format (aka base-10)
-
-
-
 A CIDR prefix length is used to limit the range of IPv4 address that can be
 assigned in a network.
 
