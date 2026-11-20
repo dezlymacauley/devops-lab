@@ -38,10 +38,32 @@ module "vpc" {
 
   azs = local.azs
 
+  #____________________________________________________________________________
+  
+  # Private subnet range: 10.0.0.0 to 10.0.127.255
+  # Public subnet range: 10.0.128.0 to 10.0.255.2555
+
+  #____________________________________________________________________________
+
+  # SECTION: 1 => Private Subnets
+
+
   private_subnets = [for i, az in local.azs : cidrsubnet(var.vpc_cidr, 4, i)]
 
   private_subnet_tags = {
     "kubernetes.io/role/internal-elb" = 1
   }
+  #____________________________________________________________________________
+
+  # SECTION: 2 => Public Subnets
+
+
+  public_subnets = [for i, az in local.azs : cidrsubnet(var.vpc_cidr, 8, i + local.public_subnet_offset)]
+
+  public_subnet_tags = {
+    "kubernetes.io/role/elb" = 1
+  }
+
+  #____________________________________________________________________________
 
 }
