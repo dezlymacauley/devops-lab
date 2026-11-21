@@ -5,9 +5,9 @@ _.file = ".env"
 [tools]
 aws-cli = { version = "latest", symlink_bins = "true" }
 eza = "latest"
-opentofu = "latest"
+terraform = "latest"
 
-"github:opentofu/tofu-ls" = "latest"
+"github:hashicorp/terraform-ls" = "latest"
 #______________________________________________________________________________
 
 [shell_alias]
