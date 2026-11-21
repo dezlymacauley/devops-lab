@@ -1,0 +1,18 @@
+# All `.terraform` directories will be ignored.
+# It contains Terraform cache, modules, and providers.
+.terraform/
+
+# All files and directories that have `.env` in their name, will be ignored.
+# These 
+that have contain sensitive environment variables
+*.env*
+
+
+
+# Any file or directory that has `.tfstate` in its name will be ignored.
+# Terraform uses this file to keep track
+*.tfstate*
+
+
+# This is the only `.env` file that should be 
+!.env_required_variables

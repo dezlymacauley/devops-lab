@@ -1,0 +1,40 @@
+[env]
+_.file = ".env"
+#______________________________________________________________________________
+
+[tools]
+aws = { version = "latest", symlink_bins = "true" }
+eza = "latest"
+"github:hashicorp/terraform-ls" = "latest"
+kubectl = "latest"
+terraform = "latest"
+#______________________________________________________________________________
+
+[shell_alias]
+menu = "echo; mise shell-alias ls; echo"
+setup = '''
+terraform init \
+  -backend-config="bucket=$AWS_S3_BUCKET_FOR_TFSTATE" \
+  -backend-config="region=$AWS_DEFAULT_REGION"
+'''
+
+tree = "eza --tree --git-ignore --all"
+#______________________________________________________________________________
+
+
+# NOTE: Old
+
+[env]
+_.file = ".env"   
+#______________________________________________________________________________
+
+[tools]
+aws-cli = { version = "latest", symlink_bins = "true" }
+eza = "latest"
+"github:hashicorp/terraform-ls" = "latest"
+terraform = "latest"
+#______________________________________________________________________________
+
+[shell_alias]
+structure = "eza --tree --git-ignore --all"
+#______________________________________________________________________________

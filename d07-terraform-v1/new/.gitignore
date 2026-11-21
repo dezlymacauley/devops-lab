@@ -5,5 +5,4 @@
 *.tfstate*
 
 # Environment Variables
-.env*
-!.env_example
+.env
