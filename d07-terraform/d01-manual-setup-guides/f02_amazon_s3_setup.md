@@ -27,10 +27,12 @@ Select the following options:
 - This name must not be the same as any other s3 bucket. 
 - Even if that bucket exists in another AWS account.
 
-AWS will add and account Regional namespace suffix like this:
+AWS will add and account Regional namespace suffix like this,
+using your AWS account number and the current AWS region on the AWS console,
+followed by `an`
 `-220474267718-us-east-1-an`
 
-So the full bucket name will be:
+So the full bucket name will be something like this:
 ```
 devops-lab-220474267718-us-east-1-an
 ```
@@ -40,15 +42,38 @@ _______________________________________________________________________________
 
 Select the following options:
 - Object ownership: `ACLs disabled (Recommended)`
-- Block all public acess: `Ensure that this is checked`
-- Bucket versioning: `Enable`
 _______________________________________________________________________________
 
+### Block Public Access settings for this bucket
+
+Select the following options:
+- Block all public acess: `Ensure that this is checked`
+_______________________________________________________________________________
+
+### Bucket Versioning
+
+Select the following options:
+- Bucket versioning: `Enabled`
+_______________________________________________________________________________
+
+### Tags - optional
+
+While this is marked optional, 
+I prefer to add tags to all AWS resource whenever I'm given the option.
+
+Create the following tags:
+
 Tags:
-- Key: `managed_by`, Value: `aws_console`
-- Key: `devops_lab`, Value: `amazon_eks`
+- Key: `CreatedUsing`, Value: `aws-console`
+- Key: `ProjectName`, Value: `devops-lab`
 
-Encryption type: `Server-side encryption with Amazon S3 managed keys (SSE-S3)`
+#### Note:
+- Use `PascalCase` when creating a key, and `kebab-case` for the values.
+_______________________________________________________________________________
 
-Bucket key: `Enable`
+### Default encryption
+
+Select the following options:
+- Encryption type: `Server-side encryption with Amazon S3 managed keys (SSE-S3)`
+- Bucket Key: `Enable`
 _______________________________________________________________________________
