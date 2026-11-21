@@ -18,10 +18,3 @@
 # of your local workflow, and any Terraform modules 
 # and Terraform providers that you have downloaded.
 #______________________________________________________________________________
-
-# Any file or directory that has `.tfstate` in its name will be ignored.
-*.tfstate*
-
-# Terraform uses this file to keep track of changes that it has made on the
-# platforms that the project is using.
-#______________________________________________________________________________
