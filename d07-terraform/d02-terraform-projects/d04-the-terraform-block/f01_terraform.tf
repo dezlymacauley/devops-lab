@@ -1,4 +1,7 @@
 terraform {
+
+  # The `~>` means `The last digit is a flexible requirement`
+  # So any version of Terraform that starts with `1.17`
   required_version = "~> 1.17.2"
 
   required_providers {
@@ -16,7 +19,7 @@ terraform {
 
     */
     aws = {
-      source  = "hashicorp/aws"
+      source = "hashicorp/aws"
       version = "~> 6.73.0"
     }
 
