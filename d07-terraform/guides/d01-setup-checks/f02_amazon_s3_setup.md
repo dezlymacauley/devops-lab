@@ -1,30 +1,48 @@
 # Amazon S3 Setup
 _______________________________________________________________________________
 
-Search for `S3`
+Login to to the AWS console, and seach for `S3`
+_______________________________________________________________________________
+
+Ensure that the AWS region is matches the value of the `AWS_REGION` variable
+in your `.env` file
+
+I prefer to set mine to `us-east-1` because this is the region that is always
+the first to get access to the latest AI/ML services released by AWS.
+_______________________________________________________________________________
 
 Click `Create bucket`
+_______________________________________________________________________________
+
+### General configuration
 
 Select the following options:
-
-Bucket type: `General Purpose`
-
-Bucket namespace: `Global Namespace`
-
-Bucket name: `devops-lab-aws-eks-4bed305c`
+- Bucket type: `General Purpose`
+- Bucket namespace: `Account Regional namespace (recommended)`
+- Bucket name prefix: `devops-lab`
 
 #### Note: 
-- Ensure that the bucket name matches  
+- Underscores are not supported for an S3 bucket name, so use hyphens.
 - The bucket name must be between 3 to 63 characters 
-and must be unique accross AWS. 
-- So you normally add a bunch of random number to the end of bucket name
-to ensure that no other AWS account in the world has this bucket name.
+- This name must not be the same as any other s3 bucket. 
+- Even if that bucket exists in another AWS account.
 
-Object ownership: `ACLs disabled (Recommended)`
+AWS will add and account Regional namespace suffix like this:
+`-220474267718-us-east-1-an`
 
-Block all public acess: `Ensure that this is checked`
+So the full bucket name will be:
+```
+devops-lab-220474267718-us-east-1-an
+```
+_______________________________________________________________________________
 
-Bucket versioning: `Enable`
+### Object Ownership
+
+Select the following options:
+- Object ownership: `ACLs disabled (Recommended)`
+- Block all public acess: `Ensure that this is checked`
+- Bucket versioning: `Enable`
+_______________________________________________________________________________
 
 Tags:
 - Key: `managed_by`, Value: `aws_console`
