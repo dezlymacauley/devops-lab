@@ -12,4 +12,5 @@ terraform = "latest"
 
 [shell_alias]
 tree = "eza --tree --all --git-ignore"
+tf = "terraform"
 #______________________________________________________________________________
