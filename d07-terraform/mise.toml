@@ -12,5 +12,9 @@ terraform = "latest"
 
 [shell_alias]
 tree = "eza --tree --all --git-ignore"
-tf = "terraform"
+tfi = "terraform init"
+tfv = "terraform validate"
+tfp = "terraform plan"
+tfa = "terraform apply -auto-approve"
+tfd = "terraform destroy" 
 #______________________________________________________________________________
