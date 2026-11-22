@@ -55,6 +55,8 @@ data "aws_caller_identity" "hcl_object" {}
 # output "name_of_value_i_want_to_print"
 output "aws_caller_identity_hcl_object" {
 
+  description = "An HCL Object containing data about the current AWS user"
+
   # TIP: If you move your cursor to `hcl_object` and press `Ctrl K` you'll
   # see the format of the HCL object
   value = data.aws_caller_identity.hcl_object
@@ -100,6 +102,8 @@ output "aws_caller_identity_hcl_object" {
 # from the `aws_caller_identity_hcl_object`
 
 output "aws_account_id" {
+
+  description = "The AWS account Id of the AWS user"
 
   # TIP: If you move your cursor to `hcl_object` and press `Ctrl K` you'll
   # see the format of the HCL object
