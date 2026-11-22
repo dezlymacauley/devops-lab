@@ -5,8 +5,19 @@
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/s3_bucket.html
 
 resource "aws_s3_bucket" "media_uploads" {
+
+  # These tells Terraform that I am naming the s3 bucket using 
+  # AWS's recommended `account-regional` namespace format,
+  # which AWS uses to ensure that each bucket name on AWS is unique.
+
+  # which follows this naming convention:
+  # "bucket name"-"Your AWS account id"-"AWS region"-"an"
+
+  # The `-an` stands for Amazon namespace. 
+  bucket_namespace = "account-regional"
+  region           = "us-east-1"
+
   bucket = "media-uploads-220474267718-us-east-1-an"
-  region = "us-east-1"
 
   tags = {
     Name = "media-uploads-220474267718-us-east-1-an"
@@ -100,4 +111,6 @@ Plan: 1 to add, 0 to change, 0 to destroy.
 # STEP: 4 => To destroy the resource
 
 # terraform destroy
+
+# Then type `yes` and press enter when prompted.
 #______________________________________________________________________________
