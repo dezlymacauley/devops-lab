@@ -17,4 +17,5 @@ tfv = "terraform validate"
 tfp = "terraform plan"
 tfa = "terraform apply -auto-approve"
 tfd = "terraform destroy" 
+tfo = "terraform output"
 #______________________________________________________________________________
