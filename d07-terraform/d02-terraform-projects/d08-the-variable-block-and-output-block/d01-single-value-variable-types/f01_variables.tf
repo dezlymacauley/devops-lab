@@ -6,6 +6,20 @@ variable "project_name" {
   default     = "cyberpunk"
 }
 
+variable "top_3_tech" {
+  type = string
+
+  # This is how you add a multi-string description in Terraform
+  description = <<-EOT
+    The top 3 technologies that power the application.
+    This refers to:
+    1. The backend framework
+    2. The database  
+    3. The frontend framework 
+  EOT
+  default     = "Axum, Postgres, SvelteKit"
+}
+
 variable "number_of_computers" {
   type        = number
   description = "The number of computers running the infastructure"
@@ -21,6 +35,10 @@ variable "is_production" {
 
 output "project_name" {
   value = var.project_name
+}
+
+output "top_3_tech" {
+  value = var.top_3_tech
 }
 
 output "number_of_computers" {
