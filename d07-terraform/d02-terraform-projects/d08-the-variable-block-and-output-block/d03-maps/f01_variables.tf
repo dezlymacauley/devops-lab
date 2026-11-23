@@ -1,0 +1,39 @@
+variable "project_details" {
+  type        = map(string)
+  description = "Project Details"
+  default = {
+    "ProjectName"    = "purple-rose"
+    "TerraformState" = "amazon-s3"
+    "BackendAPI"     = "axum-rust"
+    "UserInterface"  = "sveltekit-typescript"
+    "Database"       = "postgres"
+  }
+}
+#______________________________________________________________________________
+
+# EXAMPLE: 1 => Printing out all the values
+
+output "project_details" {
+  value = var.project_details
+}
+
+# If you run these commands:
+# terrform init
+# terraform apply -auto-approve
+# terraform output 
+
+# You should get back the default values:
+
+# project_details = tomap({
+#   "BackendAPI" = "axum-rust"
+#   "Database" = "postgres"
+#   "ProjectName" = "purple-rose"
+#   "TerraformState" = "amazon-s3"
+#   "UserInterface" = "sveltekit-typescript"
+# })
+#______________________________________________________________________________
+
+# EXAMPLE: 2 => Printing out a specific value
+
+
+#______________________________________________________________________________
