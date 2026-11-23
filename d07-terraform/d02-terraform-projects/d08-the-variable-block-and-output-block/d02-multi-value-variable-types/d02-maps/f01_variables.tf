@@ -35,5 +35,11 @@ output "project_details" {
 
 # EXAMPLE: 2 => Printing out a specific value
 
+output "user_interface" {
+  value = var.project_details["UserInterface"]
+}
 
+# If you run `terraform output user_interface`,
+# you should get this back:
+# "sveltekit-typescript"
 #______________________________________________________________________________
