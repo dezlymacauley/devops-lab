@@ -1,5 +1,15 @@
 # SECTION: 1 => Single value data types
 
+variable "tfvars_file_path" {
+  type        = string
+  description = <<-EOT
+    This is the file path for the `.tfvars` file 
+    that will be used to override the default values
+    of variables declared in this file.
+  EOT
+  default     = "tfvars-files/dev.tfvars"
+}
+
 variable "project_name" {
   type        = string
   description = "Name of the project"
@@ -48,7 +58,6 @@ output "number_of_computers" {
 output "is_production" {
   value = var.is_production
 }
-
 #______________________________________________________________________________
 
 # SECTION: 3 => How to print out the values of all `output` blocks
@@ -77,7 +86,32 @@ project_name = "cyberpunk"
 # "cyberpunk"
 #______________________________________________________________________________
 
-# SECTION: 3 => How to override the default values
+# SECTION: => How to override the default values
+
+#______________________________________________________________________________
+
+# EXAMPLE: 1 => Add the values to your `.env` file
+
+# First add the variables to your .env file like this:
+# You must use the syntax: `TF_VARS_name_of_variable`
+
+/*
+
+TF_VAR_project_name="arasaka"
+TF_VAR_top_3_tech="Python, Postgres, Astro"
+TF_VAR_number_of_computers=6
+TF_VAR_is_production=true
+
+*/
+
+# Update your Terraform state:
+# terraform apply -auto-approve
+
+# Print out all the output blocks:
+# terraform outputs
+#______________________________________________________________________________
+
+# EXAMPLE: 2 => Use a `.tfvars` file
 
 
 #______________________________________________________________________________

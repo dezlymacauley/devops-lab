@@ -1,5 +1,6 @@
 [env]
 _.file = ".env"
+TFVAR_FILE_PATH = "tfvars-files/dev.tfvars"
 #______________________________________________________________________________
 
 [tools]
@@ -14,8 +15,8 @@ menu = "echo; mise shell-alias ls; echo"
 tree = "eza --tree --all --git-ignore"
 tfi = "terraform init"
 tfv = "terraform validate"
-tfp = "terraform plan"
-tfa = "terraform apply -auto-approve"
-tfd = "terraform destroy"
+tfp = "terraform plan -var-file=$TFVAR_FILE_PATH"
+tfa = "terraform apply -auto-approve -var-file=$TFVAR_FILE_PATH"
+tfd = "terraform destroy -var-file=$TFVAR_FILE_PATH"
 tfo = "terraform output"
 #______________________________________________________________________________

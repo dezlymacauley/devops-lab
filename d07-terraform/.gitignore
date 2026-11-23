@@ -18,3 +18,11 @@
 # of your local workflow, and any Terraform modules 
 # and Terraform providers that you have downloaded.
 #______________________________________________________________________________
+
+# Any file or directory that has `.tfvars` in its name,
+# will not be uploaded to GitHub.
+*.tfvars*
+
+# A `.tfvars` file can contains sensitive values that should never be
+# uploaded to GitHub.
+#______________________________________________________________________________
