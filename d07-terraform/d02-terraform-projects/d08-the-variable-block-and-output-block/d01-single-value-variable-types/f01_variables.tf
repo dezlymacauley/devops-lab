@@ -2,6 +2,8 @@
 
 variable "tfvars_file_path" {
   type        = string
+  
+  # This is how you add a multi-string description in Terraform
   description = <<-EOT
     This is the file path for the `.tfvars` file 
     that will be used to override the default values
@@ -14,20 +16,6 @@ variable "project_name" {
   type        = string
   description = "Name of the project"
   default     = "cyberpunk"
-}
-
-variable "top_3_tech" {
-  type = string
-
-  # This is how you add a multi-string description in Terraform
-  description = <<-EOT
-    The top 3 technologies that power the application.
-    This refers to:
-    1. The backend framework
-    2. The database  
-    3. The frontend framework 
-  EOT
-  default     = "Axum, Postgres, SvelteKit"
 }
 
 variable "number_of_computers" {
@@ -45,10 +33,6 @@ variable "is_production" {
 
 output "project_name" {
   value = var.project_name
-}
-
-output "top_3_tech" {
-  value = var.top_3_tech
 }
 
 output "number_of_computers" {
@@ -98,7 +82,6 @@ project_name = "cyberpunk"
 /*
 
 TF_VAR_project_name="arasaka"
-TF_VAR_top_3_tech="Python, Postgres, Astro"
 TF_VAR_number_of_computers=6
 TF_VAR_is_production=true
 

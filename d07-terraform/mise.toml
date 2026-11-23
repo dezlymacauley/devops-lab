@@ -1,6 +1,5 @@
 [env]
 _.file = ".env"
-TFVAR_FILE_PATH = "tfvars-files/prod.tfvars"
 #______________________________________________________________________________
 
 [tools]
