@@ -6,16 +6,16 @@ _.file = ".env"
 aws-cli = { version = "latest", symlink_bins = "true" }
 eza = "latest"
 terraform = "latest"
-
 "github:hashicorp/terraform-ls" = "latest"
 #______________________________________________________________________________
 
 [shell_alias]
+menu = "echo; mise shell-alias ls; echo"
 tree = "eza --tree --all --git-ignore"
 tfi = "terraform init"
 tfv = "terraform validate"
 tfp = "terraform plan"
 tfa = "terraform apply -auto-approve"
-tfd = "terraform destroy" 
+tfd = "terraform destroy"
 tfo = "terraform output"
 #______________________________________________________________________________
