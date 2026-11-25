@@ -1,8 +1,8 @@
 # SECTION: 1 => Single value data types
 
 variable "tfvars_file_path" {
-  type        = string
-  
+  type = string
+
   # This is how you add a multi-string description in Terraform
   description = <<-EOT
     This is the file path for the `.tfvars` file 
