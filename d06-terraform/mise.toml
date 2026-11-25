@@ -18,8 +18,9 @@ tfi = "terraform init"
 tfv = "terraform validate"
 tff = "terraform fmt -recursive"
 
-tfp = "terraform plan -var-file=$TFVAR_FILE_PATH"
-tfa = "terraform apply -auto-approve -var-file=$TFVAR_FILE_PATH"
+tfp = "terraform plan -out=.tfplan -var-file=$TFVAR_FILE_PATH"
+tfa = "terraform apply .tfplan"
+
 tfo = "terraform output"
 
 tfs = "terraform state list"

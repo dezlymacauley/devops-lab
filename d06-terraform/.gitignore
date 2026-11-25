@@ -19,6 +19,14 @@
 # and Terraform providers that you have downloaded.
 #______________________________________________________________________________
 
+# Any file or directory called `.tfplan` will not be uploaded to GitHub.
+.tfplan
+
+# This is an file is created when `terraform plan` command is run using 
+# the `-out` flag. It should not be uploaded to GitHub because Terraform's
+# execution plan for your infastructure could contain sensitive values.
+#______________________________________________________________________________
+
 # Any file or directory that has `.tfvars` in its name,
 # will not be uploaded to GitHub.
 *.tfvars*
