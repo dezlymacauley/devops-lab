@@ -1,3 +1,12 @@
+/*
+  ABOUT: Maps 
+
+  1  A map is a collection of key-value pairs
+  2. The keys of a map are always strings
+  3. Each key must be unique
+  4. All the values have to be the same data type
+*/
+
 variable "project_details" {
   type        = map(string)
   description = "Project Details"
