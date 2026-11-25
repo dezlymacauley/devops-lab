@@ -19,25 +19,26 @@ resource "aws_vpc" "main_vpc" {
 }
 #______________________________________________________________________________
 
-# STEP: 2 => Create the Subnets
+# STEP: 2 => Using `count` to create multiple subnets
 
-resource "aws_subnet" "subnet_1" {
+# The reason why I named this `subnet` is because when you use the `count`
+# setting inside a resource block 
+resource "aws_subnet" "subnet" {
+  # This specifies how many resources you want to create.
+  count = 2
   vpc_id = aws_vpc.main_vpc.id
-  cidr_block = "10.0.1.0/24"
+
+  # `count.index` returns and number starting from 0,
+  # for each resource created.
+  
+  # E.g. In this example, `count = 2`
+
+
+  cidr_block = "10.0.${count.index}.0/24"
 
   tags = {
     ProjectName = local.project_name
-    Name = "${local.project_name}-subnet-1"
-  }
-}
-
-resource "aws_subnet" "subnet_2" {
-  vpc_id = aws_vpc.main_vpc.id
-  cidr_block = "10.0.2.0/24"
-
-  tags = {
-    ProjectName = local.project_name
-    Name = "${local.project_name}-subnet-2"
+    Name = "${local.project_name}-subnet-${count.index}"
   }
 }
 #______________________________________________________________________________
