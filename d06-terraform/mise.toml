@@ -12,10 +12,14 @@ terraform = "latest"
 [shell_alias]
 menu = "echo; mise shell-alias ls; echo"
 tree = "eza --tree --all --git-ignore"
+
 tfi = "terraform init"
 tfv = "terraform validate"
+tff = "terraform fmt -recursive"
+
 tfp = "terraform plan -var-file=$TFVAR_FILE_PATH"
 tfa = "terraform apply -auto-approve -var-file=$TFVAR_FILE_PATH"
-tfd = "terraform destroy -var-file=$TFVAR_FILE_PATH"
 tfo = "terraform output"
+
+tfd = "terraform destroy -var-file=$TFVAR_FILE_PATH"
 #______________________________________________________________________________
