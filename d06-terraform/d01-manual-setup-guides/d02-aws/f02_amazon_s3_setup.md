@@ -54,6 +54,10 @@ _______________________________________________________________________________
 
 Select the following options:
 - Bucket versioning: `Enabled`
+
+#### Note:
+- For simple projects or practing Terraform syntax,
+you can set this to `Disable`
 _______________________________________________________________________________
 
 ### Tags - optional
