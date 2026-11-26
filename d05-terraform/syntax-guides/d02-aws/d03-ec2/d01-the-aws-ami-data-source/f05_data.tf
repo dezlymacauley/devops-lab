@@ -1,4 +1,4 @@
-# SECTION: 1 => Get the AMI
+# ABOUT: The `aws_ami` data source
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/resources/ami
 
@@ -12,6 +12,7 @@
 # which is a type of Linux operating system.
 
 # This is one of the most installed operating systems on AWS virtual machines. 
+#______________________________________________________________________________
 
 data "aws_ami" "ubuntu" {
 
@@ -22,14 +23,14 @@ data "aws_ami" "ubuntu" {
   # The number 099720109477 is their AWS account Id
   # This ensures that the search results only include official Ubuntu AMIs
   # and not third-party Ubuntu AMIs
-  owners = [ "099720109477"]
+  owners = ["099720109477"]
 
   # This tells Terraform to only return the most reccent Ubuntu AMI
   most_recent = true
 }
 
 output "aws_ami_ubuntu" {
-  value = data.aws_ami.ubuntu 
+  value = data.aws_ami.ubuntu
 }
 
 # NOTE: This is what gets returned without a filter
