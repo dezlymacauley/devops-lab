@@ -31,8 +31,9 @@ resource "aws_vpc" "main_vpc" {
 # The first subnet will be `aws_subnet.subnet[0]` 
 # The second subnet will be `aws_subnet.subnet[1]` 
 resource "aws_subnet" "subnet" {
+
   # This specifies how many resources you want to create.
-  count  = 2
+  count  = var.number_of_subnets
   vpc_id = aws_vpc.main_vpc.id
 
   # `count.index` returns and number starting from 0,
