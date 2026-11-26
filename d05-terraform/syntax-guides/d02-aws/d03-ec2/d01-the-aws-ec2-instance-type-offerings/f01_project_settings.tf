@@ -64,7 +64,6 @@ project_variables = {
 #______________________________________________________________________________
 
 locals {
-
   valid_ec2_sizes = distinct([
     for element in
     data.aws_ec2_instance_type_offerings.available.instance_types :
@@ -74,12 +73,9 @@ locals {
   valid_ec2_types = distinct([
     for instance_type in
     data.aws_ec2_instance_type_offerings.available.instance_types :
-    instance_type if endswith(
-      instance_type, ".${var.ec2_type_selected}"
-    )
+    instance_type if instance_type == var.ec2_type_selected
   ])
 }
-
 #______________________________________________________________________________
 
 # SECTION: 5 => Output: Project Locals
