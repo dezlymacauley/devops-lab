@@ -3,7 +3,7 @@ provider "aws" {
 
   default_tags {
     tags = {
-      ProjectName = "${local.project_name}"
+      ProjectName = "${var.project_name}"
     }
   }
 }
