@@ -1,3 +1,19 @@
+# SECTION: 1 => Data Sources
+
+#______________________________________________________________________________
+
+# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ec2_instance_type_offerings
+
+# For creating a list of valid EC2 (AWS Virtual Machines) that are available
+# In the current AWS region
+
+data "aws_ec2_instance_type_offerings" "available" {
+  region = "us-east-1"
+}
+#______________________________________________________________________________
+
+# SECTION: 3 => Variables 
+
 variable "project_name" {
   description = "Name of the project"
   type        = string
@@ -7,31 +23,14 @@ variable "project_name" {
 variable "type_of_ec2_selected" {
   description = <<-EOT
     The type of EC2 (virtual machine) that will be rented from AWS
-    If you want to see what are valid types
+    and used in this project.
   EOT
   type        = string
   default     = "t3.micro"
 }
-
 #______________________________________________________________________________
 
-output "variables" {
-  value = {
-    project_name         = var.project_name
-    type_of_ec2_selected = var.type_of_ec2_selected
-  }
-}
-#______________________________________________________________________________
-
-
-# SECTION: 1 => Data Sources
-
-# https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ec2_instance_type_offerings
-
-data "aws_ec2_instance_type_offerings" "available" {}
-#______________________________________________________________________________
-
-# SECTION: 2 =>  Locals 
+# SECTION: 2 => Locals
 
 locals {
 
@@ -51,13 +50,39 @@ locals {
     )
   ]
 }
+
 #______________________________________________________________________________
 
-# SECTION: 3 => Outputs
+# SECTION: 4 => Outputs
 
-output "list_of_virtual_machine_size_suffixes" {
-  value = sort(local.list_of_virtual_machine_size_suffixes)
+output "variables" {
+  value = {
+    project_name         = var.project_name
+    type_of_ec2_selected = var.type_of_ec2_selected
+  }
 }
+
+# You should get something like this back:
+
+/*
+
+variables = {
+  "project_name" = "devops-lab"
+  "type_of_ec2_selected" = "t3.micro"
+}
+
+*/
+
+
+# output "locals" {
+#   
+# }
+
+#______________________________________________________________________________
+
+# output "list_of_virtual_machine_size_suffixes" {
+#   value = sort(local.list_of_virtual_machine_size_suffixes)
+# }
 
 # You'll get this back
 
@@ -101,7 +126,6 @@ list_of_virtual_machine_size_suffixes = tolist([
 
 #______________________________________________________________________________
 
-
 # output "virtual_machines_available_to_rent" {
 #   value = local.virtual_machines_available_to_rent
 # }
@@ -119,17 +143,4 @@ virtual_machines_available_to_rent = [
 ]
 
 */
-
-#______________________________________________________________________________
-
-
-
-
-
-
-
-
-
-
-
 #______________________________________________________________________________
