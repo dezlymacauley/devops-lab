@@ -1,3 +1,29 @@
+variable "project_name" {
+  description = "Name of the project"
+  type        = string
+  default     = "devops-lab"
+}
+
+variable "type_of_ec2_selected" {
+  description = <<-EOT
+    The type of EC2 (virtual machine) that will be rented from AWS
+    If you want to see what are valid types
+  EOT
+  type        = string
+  default     = "t3.micro"
+}
+
+#______________________________________________________________________________
+
+output "variables" {
+  value = {
+    project_name         = var.project_name
+    type_of_ec2_selected = var.type_of_ec2_selected
+  }
+}
+#______________________________________________________________________________
+
+
 # SECTION: 1 => Data Sources
 
 # https://registry.terraform.io/providers/hashicorp/aws/latest/docs/data-sources/ec2_instance_type_offerings
@@ -76,9 +102,9 @@ list_of_virtual_machine_size_suffixes = tolist([
 #______________________________________________________________________________
 
 
-output "virtual_machines_available_to_rent" {
-  value = local.virtual_machines_available_to_rent
-}
+# output "virtual_machines_available_to_rent" {
+#   value = local.virtual_machines_available_to_rent
+# }
 
 /*
 
@@ -93,5 +119,17 @@ virtual_machines_available_to_rent = [
 ]
 
 */
+
+#______________________________________________________________________________
+
+
+
+
+
+
+
+
+
+
 
 #______________________________________________________________________________
