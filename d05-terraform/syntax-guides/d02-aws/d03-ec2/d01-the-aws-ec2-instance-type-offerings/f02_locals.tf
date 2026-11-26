@@ -14,7 +14,6 @@ locals {
     split(".", t)[1]
   ])
 
-  selected_virtual_machine_size = "micro"
 
   virtual_machines_available_to_rent = [
     for instance_type in distinct(
@@ -22,7 +21,7 @@ locals {
       .available.instance_types
     ) :
     instance_type if endswith(
-      instance_type, ".${local.selected_virtual_machine_size}"
+      instance_type, ".${var.type_of_ec2_selected}"
     )
   ]
 }
