@@ -20,45 +20,30 @@ variable "project_name" {
   default     = "devops-lab"
 }
 
-variable "type_of_ec2_selected" {
+variable "ec2_type_selected" {
   description = <<-EOT
-    The type of EC2 (virtual machine) that will be rented from AWS
+    The type of EC2 (AWS Virtual Machine) that will be rented from AWS
     and used in this project.
+    
+    AWS uses this format:
+    Name of a valid EC2 type = family.size
+
+    E.g. `t3.micro` means,
+    the `micro` size, of the `t3` family of AWS Virtual Machines.
   EOT
   type        = string
   default     = "t3.micro"
 }
 #______________________________________________________________________________
 
-# SECTION: 2 => Locals
-
-locals {
-
-  list_of_virtual_machine_size_suffixes = distinct([
-    for t in data.aws_ec2_instance_type_offerings.available.instance_types :
-    split(".", t)[1]
-  ])
-
-
-  virtual_machines_available_to_rent = [
-    for instance_type in distinct(
-      data.aws_ec2_instance_type_offerings
-      .available.instance_types
-    ) :
-    instance_type if endswith(
-      instance_type, ".${var.type_of_ec2_selected}"
-    )
-  ]
-}
+# SECTION: 3 => Outputs: Project Variables
 
 #______________________________________________________________________________
 
-# SECTION: 4 => Outputs
-
-output "variables" {
+output "project_variables" {
   value = {
-    project_name         = var.project_name
-    type_of_ec2_selected = var.type_of_ec2_selected
+    project_name      = var.project_name
+    ec2_type_selected = var.ec2_type_selected
   }
 }
 
@@ -66,81 +51,50 @@ output "variables" {
 
 /*
 
-variables = {
+project_variables = {
   "project_name" = "devops-lab"
   "type_of_ec2_selected" = "t3.micro"
 }
 
 */
+#______________________________________________________________________________
 
-
-# output "locals" {
-#   
-# }
+# SECTION: 4 => Locals
 
 #______________________________________________________________________________
 
-# output "list_of_virtual_machine_size_suffixes" {
-#   value = sort(local.list_of_virtual_machine_size_suffixes)
-# }
+locals {
 
-# You'll get this back
+  valid_ec2_sizes = distinct([
+    for element in
+    data.aws_ec2_instance_type_offerings.available.instance_types :
+    split(".", element)[1]
+  ])
 
-/*
-
-list_of_virtual_machine_size_suffixes = tolist([
-  "10xlarge",
-  "112xlarge",
-  "12xlarge",
-  "16xlarge",
-  "18xlarge",
-  "224xlarge",
-  "24xlarge",
-  "2xlarge",
-  "32xlarge",
-  "3xlarge",
-  "48xlarge",
-  "4xlarge",
-  "56xlarge",
-  "64xlarge",
-  "6xlarge",
-  "8xlarge",
-  "96xlarge",
-  "9xlarge",
-  "large",
-  "medium",
-  "metal",
-  "metal-12xl",
-  "metal-16xl",
-  "metal-24xl",
-  "metal-32xl",
-  "metal-48xl",
-  "metal-96xl",
-  "micro",
-  "nano",
-  "small",
-  "xlarge",
-])
-
-*/
+  valid_ec2_types = distinct([
+    for instance_type in
+    data.aws_ec2_instance_type_offerings.available.instance_types :
+    instance_type if endswith(
+      instance_type, ".${var.ec2_type_selected}"
+    )
+  ])
+}
 
 #______________________________________________________________________________
 
-# output "virtual_machines_available_to_rent" {
-#   value = local.virtual_machines_available_to_rent
-# }
+# SECTION: 5 => Output: Project Locals
+
+output "project_locals" {
+  value = {
+    valid_ec2_sizes = local.valid_ec2_sizes
+    valid_ec2_types = local.valid_ec2_types
+  }
+}
+
+# You should get something like this back:
 
 /*
 
-virtual_machines_available_to_rent = [
-  "t4g.micro",
-  "t3.micro",
-  "t9g.micro",
-  "t2.micro",
-  "t8i.micro",
-  "t1.micro",
-  "t3a.micro",
-]
 
 */
 #______________________________________________________________________________
