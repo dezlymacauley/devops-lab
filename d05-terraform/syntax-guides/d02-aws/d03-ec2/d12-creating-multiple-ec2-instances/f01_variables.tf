@@ -3,3 +3,8 @@ variable "number_of_subnets" {
   type        = number
   default     = 2
 }
+
+variable "number_of_virtual_machines" {
+  type    = number
+  default = 1
+}
