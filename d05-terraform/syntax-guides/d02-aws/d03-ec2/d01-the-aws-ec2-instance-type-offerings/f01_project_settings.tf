@@ -64,6 +64,13 @@ project_variables = {
 #______________________________________________________________________________
 
 locals {
+
+  valid_ec2_families = distinct([
+    for element in
+    data.aws_ec2_instance_type_offerings.available.instance_types :
+    split(".", element)[0]
+  ])
+
   valid_ec2_sizes = distinct([
     for element in
     data.aws_ec2_instance_type_offerings.available.instance_types :
@@ -73,7 +80,9 @@ locals {
   valid_ec2_types = distinct([
     for instance_type in
     data.aws_ec2_instance_type_offerings.available.instance_types :
-    instance_type if instance_type == var.ec2_type_selected
+    instance_type if startswith(
+      instance_type, "${split(".", var.ec2_type_selected)[0]}."
+    )
   ])
 }
 #______________________________________________________________________________
@@ -83,6 +92,7 @@ locals {
 output "project_locals" {
   value = {
     valid_ec2_sizes = local.valid_ec2_sizes
+    valid_ec2_families = local.valid_ec2_families
     valid_ec2_types = local.valid_ec2_types
   }
 }
